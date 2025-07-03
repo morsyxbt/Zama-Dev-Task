@@ -1,4 +1,4 @@
-# 🛡️ Zama Developer Program – Level 2 & 3 Guide
+# 🧩 Zama Developer Program – Level 2 & 3 Guide
 
 Complete Level 2 of the [Zama Developer Program](https://guild.xyz/zama/developer-program) using GitHub Codespace — clean, fast, and tested ✅
 
