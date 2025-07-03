@@ -3,8 +3,8 @@
 Complete Level 2 and 3 of the [Zama Developer Program](https://guild.xyz/zama/developer-program)
 
 ## Environment
-**For Windows: Linux Ubuntu OS**
-* **VPS**: You can use a linux VPS to follow the guide
+* **Windows**: Use Linux Ubuntu OS
+* **VPS**: You can use any VPS and follow the guide
 
 
 ## Install Dependecies
