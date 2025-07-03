@@ -19,6 +19,8 @@ node -v
 npm install -g yarn
 yarn -v
 
+```
+```
 # Install Hardhat
 sudo npm install -g hardhat
 ```
