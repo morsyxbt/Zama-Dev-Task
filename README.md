@@ -1,127 +1,81 @@
 # 🧩 Zama Developer Program – Level 2 & 3 Guide
 
-Complete Level 2 of the [Zama Developer Program](https://guild.xyz/zama/developer-program) using GitHub Codespace — clean, fast, and tested ✅
+Complete Level 2 and 3 of the [Zama Developer Program](https://guild.xyz/zama/developer-program)
 
----
+## Environment
+**For Windows: Linux Ubuntu OS**
+* **VPS**: You can use a linux VPS to follow the guide
 
-# ✅ Level 2: “Write Your First Confidential Smart Contract”
 
-### 🔹 STEP 1: Open Template in Codespace
-1. Go to https://github.com/zama-ai/fhevm-hardhat-template
-2. Click the green Code button
-3. Select → Open with Codespaces → + New codespace
-4. Wait for Codespace to fully load and initialize
+## Install Dependecies
+```console
+# Packages:
+sudo apt update && sudo apt upgrade -y
+sudo apt install screen curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev  -y
 
----
+# Install Nodejs, npm, yarn
+sudo apt update
+sudo curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+npm install -g yarn
+yarn -v
 
-### 🔹 Step 2: Clean and Recreate Contracts Folder
-```bash
-
-rm -rf contracts/*
-mkdir contracts
-touch contracts/Calculator.sol
-```
----
-
-### 🔹 Step 3: Add Calculator Contract
-
-1. Open ```contracts``` 
-2. Right Click 
-3. Add file
-4. Create ```/Calculator.sol``` and paste this code:
-```bash
-
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-contract Calculator {
-    function encryptedAdd(uint32 a, uint32 b) public pure returns (uint32) {
-        return a + b;
-    }
-}
+# Install Hardhat
+sudo npm install -g hardhat
 ```
 
----
+## Deploy FHECounter contract
+```
+git clone https://github.com/zama-ai/fhevm-hardhat-template
+cd fhevm-hardhat-template
+```
 
-### 🔹 Step 4: Install Required Packages
-```bash
+Install:
+```
 npm install
-npm install @fhenixprotocol/contracts --save
 ```
 
-### 🔹 Step 5: Compile the Contract
-```bash
+Replace `hardhat.config.ts` file:
+```
+curl -o hardhat.config.ts https://raw.githubusercontent.com/0xmoei/zama-fhe/refs/heads/main/hardhat.config.ts
+
+```
+
+Install Hardhat:
+```
+npm install --save-dev hardhat
+```
+
+Set Sepolia RPC:
+```
+npx hardhat vars set SEPOLIA_RPC_URL
+```
+* It prompts you to enter a Sepolia RPC, you can use `https://ethereum-sepolia-rpc.publicnode.com`
+
+Set Privatekey: **Use Burner Wallet**
+```
+npx hardhat vars set PRIVATE_KEY
+```
+* It prompts you to enter a privatekey, enter without `0x` perfix.
+
+Verify your wallet:
+```
+npx hardhat accounts --network sepolia
+```
+
+Compile and Deploy:
+```
+# Compile
 npx hardhat compile
+
+# Deploy
+npx hardhat deploy --network sepolia
 ```
 
-Output should show:  ```Compiled 1 Solidity file successfully```
+* It responds with your deployed contract address
 
----
-### 🔹 Step 6: Claim Level 2 on Guild - https://guild.xyz/zama/developer-program  
-
----
-
-# ✅ Level 3: “Submit Contract Address”
-
----
-
-### 🔹 Step 1: Create scripts Folder
-
-```bash
-mkdir scripts
-````
-
----
-
-### 🔹 Step 2: Create Deploy Script File
-
-```bash
-touch scripts/deploy.js
-```
-
-• Then in Codespace (left sidebar):
-
-→ Open `scripts/deploy.js`
-→ Paste the following code:
-
-```javascript
-const hre = require("hardhat");
-
-async function main() {
-  const Calculator = await hre.ethers.getContractFactory("Calculator");
-  const calculator = await Calculator.deploy();
-  await calculator.waitForDeployment();
-
-  console.log("Calculator deployed to:", await calculator.getAddress());
-}
-
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
-```
-
----
-
-### 🔹 Step 3: Deploy the Contract
-
-Run this in terminal:
-
-```bash
-npx hardhat run scripts/deploy.js
-```
-
-Expected output:
-
-```bash
-Calculator deployed to: 0xAbC...123
-```
-
-That address is your deployed smart contract address.
-
----
-
-### 🔹 Step 4: Claim Level 3
+## Claim Level 3
 
 Visit:
 https://guild.xyz/zama/developer-program
@@ -131,15 +85,9 @@ https://guild.xyz/zama/developer-program
 
 🎉 You’ve completed Level 3!
 
----
-
----
-
 ## Made with ❤️ by Morsyxbt
 
 Follow & Stay Connected for More Alphas, Airdrops & Dev Tutorials
 
 - 📍 X (Twitter): https://x.com/morsyxbt
-   
----
 
