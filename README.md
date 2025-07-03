@@ -20,9 +20,9 @@ npm install -g yarn
 yarn -v
 
 ```
+Install Hardhat:
 ```
-# Install Hardhat
-sudo npm install -g hardhat
+npm install --save-dev hardhat
 ```
 
 ## Deploy FHECounter contract
@@ -40,11 +40,6 @@ Replace `hardhat.config.ts` file:
 ```
 curl -o hardhat.config.ts https://raw.githubusercontent.com/0xmoei/zama-fhe/refs/heads/main/hardhat.config.ts
 
-```
-
-Install Hardhat:
-```
-npm install --save-dev hardhat
 ```
 
 Set Sepolia RPC:
